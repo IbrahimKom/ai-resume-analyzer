@@ -1,3 +1,6 @@
+import clsx, {type ClassValue} from "clsx";
+import {twMerge} from "tailwind-merge";
+
 /**
  * Convert a byte size into a human-readable string using KB, MB, or GB.
  * - Uses base 1024 for unit conversion.
@@ -28,6 +31,10 @@ export function formatSize(bytes: number): string {
   }
   // Below 1 KB: keep unit as KB per requirement
   return '0 KB';
+}
+
+export function cn(...inputs: ClassValue[]) {
+    return twMerge(clsx(inputs))
 }
 
 export const generateUUID = () => crypto.randomUUID();
